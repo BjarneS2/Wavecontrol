@@ -1,0 +1,14 @@
+numpy
+scipy
+matplotlib
+h5py
+psutil
+pyqtgraph
+PyQt5
+opencv-python
+similaritymeasures
+
+# Vendor SDK for the Spectrum Instrumentation M4i.6631-x8 AWG card.
+# Not on PyPI - install from the Spectrum driver package (see their
+# documentation). Code that imports it guards against it being absent.
+# spcm
