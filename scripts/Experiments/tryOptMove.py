@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "src"))
 from Controller import AWGController, arc_length_spacing, resample_curvature_weighted, uniform_sampling, load_control_protocol
 
-PROTOCOL_PATH = Path(r"C:\\dev\\GitHub\\Optimal-Control-of-Atomic-Motion-in-Optical-Tweezer-Arrays\\scripts\\results\\control3d_thermal_2026-05-07_15-36-53.h5")
+PROTOCOL_PATH = Path(r"C:\\dev\\GitHub\\Atomove\\scripts\\results\\control3d_thermal_2026-05-07_15-36-53.h5")
 
 
 t_us, ux_um, uy_um, ua = load_control_protocol(PROTOCOL_PATH)

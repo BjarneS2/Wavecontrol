@@ -72,7 +72,7 @@ FORCE_TRIGGER = True
 
 # --- image analysis ---------------------------------------------------------
 CALIB_GLOB       = r"c:\dev\GitHub\AWGController\Data\tweezerImages\tweezerLoad1x8-SpeedScan_*.npy"  # real 1x8 line
-CALIB_DEBUG_GLOB = r"c:\dev\GitHub\Optimal-Control-of-Atomic-Motion-in-Optical-Tweezer-Arrays\scripts\ExperimentalDataAnalysis\ExperimentalData\20260610\tweezerLoad2x2-NoMotion_99_*.npy"
+CALIB_DEBUG_GLOB = r"c:\dev\GitHub\Atomove\scripts\ExperimentalDataAnalysis\ExperimentalData\20260610\tweezerLoad2x2-NoMotion_99_*.npy"
 DEBUG_ROW_BAND   = (50, 85)   # debug only: keep one row of the 2x2/2x3 test data -> a 1D line
 N_SITES          = 8          # expected sites for the cross-check; None -> infer from detection
 LOAD_FRAME       = 1          # 0 background, 1 loading (used for occupancy), 2 survival

@@ -22,7 +22,7 @@ The `spcm` SDK (Spectrum Instrumentation) is not on PyPI and must be installed s
 
 ## Related repository
 
-Some scripts in `scripts/Experiments/` load control-protocol output (`.h5`) from the sibling thesis repo [`Optimal-Control-of-Atomic-Motion-in-Optical-Tweezer-Arrays`](../Optimal-Control-of-Atomic-Motion-in-Optical-Tweezer-Arrays), which contains the Julia optimal-control simulation code that produces those protocols.
+Some scripts in `scripts/Experiments/` load control-protocol output (`.h5`) from the sibling thesis repo [`Atomove`](../Atomove), which contains the Julia optimal-control simulation code that produces those protocols.
 
 ## AI declaration
 
