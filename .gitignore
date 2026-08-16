@@ -229,5 +229,3 @@ __pycache__/
 .vscode/
 *.npy
 Data/
-Figures/
-*.pdf
