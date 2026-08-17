@@ -34,6 +34,7 @@ from matplotlib.patches import Patch
 matplotlib.rcParams["mathtext.fontset"] = "cm"
 matplotlib.rcParams["font.family"] = "serif"
 matplotlib.rcParams["axes.linewidth"] = 1.0
+matplotlib.rcParams["font.size"] = 12
 
 try:  # after importing CommonThings the sorter folder should be accessible
     import sorter as S  # type: ignore
@@ -49,7 +50,9 @@ SPACING_UM_BY_CONFIG = {
     "default": 32.25,
 }  # measured, not derived from pixels
 SHORT_TRANSFER_CONFIG = "46um"  # 4.6um-spacing hops, excluded from the ALL_RUNS plot
-FAULTY_RUNS = {"tweezerLoad1x2-STA200us"}  # bad data taking, excluded from ALL_RUNS plot
+FAULTY_RUNS = {
+    "tweezerLoad1x2-STA200us"
+}  # bad data taking, excluded from ALL_RUNS plot
 
 _DUR_RE = re.compile(r"(\d+(?:_\d+)?)us")
 
@@ -60,6 +63,10 @@ KIND_STYLE = {
     "optimised + amp": ("tab:orange", "D"),
     "opt + amp, half offset": ("tab:purple", "P"),
     "other": ("0.5", "x"),
+}
+KIND_ABBR = {
+    "linear": "lin",
+    "min-jerk": "min",
 }
 
 
@@ -140,17 +147,25 @@ def _figure(rows, ax):
             label=label,
         )
         ax.annotate(
-            f"{r['T']:g}us",
+            f"{r['T']:g}µs",
             (r["v_mean"], p),
             textcoords="offset points",
             xytext=(5, 4),
-            fontsize=7,
+            fontsize=11,
         )
     ax.set_xlabel("mean transport velocity [m/s]")
     ax.set_ylabel("P(arrived at target | loaded at source)")
     ax.set_ylim(0, 1.02)
-    ax.text(-0.12, 1.02, "(a)", transform=ax.transAxes, fontsize=12, fontweight="bold", va="bottom")
-    ax.legend(fontsize=8.5, framealpha=0.95)
+    ax.text(
+        -0.12,
+        1.02,
+        "(a)",
+        transform=ax.transAxes,
+        fontsize=12,
+        fontweight="bold",
+        va="bottom",
+    )
+    ax.legend(fontsize=12, framealpha=0.95)
     ax.grid(alpha=0.3)
 
 
@@ -167,16 +182,30 @@ def _stacked_figure(rows, ax):
     ax.bar(x, lost, bottom=arrived, color="0.6")
     ax.bar(x, left_behind, bottom=arrived + lost, color="gold")
     ax.set_xticks(x)
-    ax.set_xticklabels([f"{r['kind']}\n{r['T']:g}us" for r in order], fontsize=8)
+    ax.set_xticklabels(
+        [
+            f"{KIND_ABBR.get(r['kind'], r['kind'])}\n{r['T']:g}µs"
+            for r in order
+        ],
+        fontsize=10,
+    )
     ax.set_ylabel("probability")
     ax.set_ylim(0, 1.02)
-    ax.text(-0.12, 1.02, "(b)", transform=ax.transAxes, fontsize=12, fontweight="bold", va="bottom")
+    ax.text(
+        -0.12,
+        1.02,
+        "(b)",
+        transform=ax.transAxes,
+        fontsize=12,
+        fontweight="bold",
+        va="bottom",
+    )
     ax.legend(
         handles=[
             Patch(color="0.6", label="lost"),
             Patch(color="gold", label="left behind"),
         ],
-        fontsize=8.5,
+        fontsize=12,
         framealpha=0.95,
     )
     ax.grid(alpha=0.3)
