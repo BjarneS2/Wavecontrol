@@ -229,3 +229,8 @@ __pycache__/
 .vscode/
 *.npy
 Data/
+
+*.md
+*.png
+*.pdf
+*.svg

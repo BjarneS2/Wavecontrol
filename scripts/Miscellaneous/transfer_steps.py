@@ -218,8 +218,8 @@ for k, step in enumerate(STEPS):
 fig.subplots_adjust(left=0.06, right=0.98, top=0.9, bottom=0.12)
 
 out_dir = os.path.dirname(os.path.abspath(__file__))
-fig.savefig(os.path.join(out_dir, "transfer_steps.pdf"), facecolor="white")
+fig.savefig(os.path.join(out_dir, "transfer_steps.svg"), facecolor="white")
 fig.savefig(os.path.join(out_dir, "transfer_steps.png"), dpi=300, facecolor="white")
-print("saved transfer_steps.png / .pdf")
+print("saved transfer_steps.png / .svg")
 
 plt.show()

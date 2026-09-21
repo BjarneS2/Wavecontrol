@@ -70,13 +70,13 @@ def _safe_name(s):
     return _UNSAFE_PATH_CHARS.sub("_", str(s)).strip()
 
 
-def save_figure(fig, category, run_name, title, **savefig_kwargs):
-    """fig -> Figures/<category>/<run_name>/<title>.png, dirs made as needed."""
+def save_figure(fig, category, run_name, title, ext="png", **savefig_kwargs):
+    """fig -> Figures/<category>/<run_name>/<title>.<ext>, dirs made as needed."""
     out = (
         FIGURES_DIR
         / _safe_name(category)
         / _safe_name(run_name)
-        / f"{_safe_name(title)}.png"
+        / f"{_safe_name(title)}.{ext.lstrip('.')}"
     )
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out, **{"dpi": DEFAULT_DPI, **savefig_kwargs})
